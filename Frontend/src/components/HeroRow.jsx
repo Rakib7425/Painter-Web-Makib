@@ -3,12 +3,18 @@ import heroRowImg1 from "../assets/heroRowImg1.jpg";
 import heroRowImg2 from "../assets/heroRowImg2.jpg";
 import heroRowImg3 from "../assets/heroRowImg3.jpg";
 import { BackgroundGradient } from "./BackgroundGradient";
+import { motion } from "framer-motion";
 
 const HeroRow = () => {
 	return (
 		<>
 			<hr />
-			<section className='bg-white dark:bg-gray-950 pt-8 w-full'>
+			<motion.section
+				className='bg-white dark:bg-gray-950 pt-8 w-full '
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1, delay: 1 }}
+				exit={{ opacity: 0 }}
+			>
 				<h2 className='text-black dark:text-white text-xl md:text-3xl md:mb-3 font-bold'>
 					Suitable For
 				</h2>
@@ -38,8 +44,13 @@ const HeroRow = () => {
 						</a>
 					</div>
 				</div>
-			</section>
-			<section className='bg-white dark:bg-gray-950 p-3'>
+			</motion.section>
+			<motion.section
+				className='bg-white dark:bg-gray-950 p-3'
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1, delay: 1 }}
+				exit={{ opacity: 0 }}
+			>
 				<div className='gap-8 items-center mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 sm:px-3 px-1 md:py-2'>
 					<div className='mt-4 md:mt-0'>
 						<h2 className='mb-4 text-4xl uppercase tracking-tight font-extrabold text-gray-900 dark:text-white'>
@@ -68,7 +79,7 @@ const HeroRow = () => {
 						/>
 					</BackgroundGradient>
 				</div>
-			</section>
+			</motion.section>
 			<section className='bg-white dark:bg-gray-950 p-3'>
 				<div className='gap-8 items-center mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 sm:px-3 px-1 md:py-2'>
 					<BackgroundGradient className='rounded-[22px] md:p-5 sm:p-10 bg-white dark:bg-zinc-900'>

@@ -8,6 +8,7 @@ import { setUser } from "../store/slices/userSlice";
 import { toast } from "react-toastify";
 import ToggleDarkMode from "./ToggleDarkMode";
 import { headerItemCSS } from "../constant/headerItem";
+import { motion } from "framer-motion";
 
 const Header = () => {
 	// eslint-disable-next-line no-unused-vars
@@ -20,7 +21,10 @@ const Header = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		window.scrollTo(0, 0);
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		});
 	}, [location]);
 
 	const controlNavbar = () => {
@@ -78,7 +82,7 @@ const Header = () => {
 	return (
 		<>
 			<header
-				className={`border-gray-200 lg:px-6 py-4 px-2 md:px-0 mx-auto left-0 md:fixed md:min-w-full dark:md:bg-gray-950 md:z-50 bg-gray-100 text-black shadow-lg `}
+				className={`border-gray-200 lg:px-6 py-4 px-2 md:px-0 mx-auto left-0 md:fixed md:min-w-full dark:md:bg-gray-950 md:z-50 bg-gray-100 dark:bg-gray-950 text-black shadow-lg `}
 			>
 				<div className='flex flex-wrap justify-between items-center mx-auto max-w-screen-xl w-full'>
 					<span
@@ -207,11 +211,12 @@ const Header = () => {
 					</div>
 
 					{mobileMenu && (
-						<div
-							className='flex flex-col justify-between items-center w-full lg:hidden lg:w-auto lg:order-1 dark:bg-gray-950 bg-gray-500 text-black mt-2 '
+						<motion.div
+							className='flex flex-col justify-between items-center w-full lg:hidden lg:w-auto lg:order-1 bg-gray-800 dark:bg-gray-750 dark:text-white text-black mt-2 '
 							id='mobile-menu-2'
+							animate={{ scale: 1.5, marginTop: "80px" }}
 						>
-							<ul className='flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0 w-full'>
+							<ul className='dark:text-white flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0 w-full'>
 								<li>
 									<span
 										className='block py-2 pr-4 pl-3 rounded lg:text-primary-700 lg:p-0 '
@@ -267,7 +272,7 @@ const Header = () => {
 									</span>
 								</li>
 							</ul>
-						</div>
+						</motion.div>
 					)}
 				</div>
 			</header>

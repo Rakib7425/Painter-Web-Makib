@@ -82,8 +82,8 @@ const Login = () => {
 		<ContentWrapper>
 			<div className='flex justify-center items-center '>
 				<div className='w-full max-w-xl p-6 mt-24 space-y-8 sm:p-8 bg-white rounded-lg shadow dark:shadow shadow-slate-600 dark:bg-gray-800'>
-					<h2 className='text-2xl font-bold text-gray-900 dark:text-white'>
-						Admin Sign in
+					<h2 className='text-2xl font-bold text-gray-900 dark:text-white md:py-10'>
+						Admin Login
 					</h2>
 					<form className='mt-8 space-y-6' onSubmit={handleSubmit(onSubmit)}>
 						<div>
