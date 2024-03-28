@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* .active {
+	color: blueviolet;
+	color: #545e6f;
+	position: ;
+} 
+*/
+
+.roboto-thin {
+	font-family: "Roboto", sans-serif;
+	font-weight: 100;
+	font-style: normal;
+}
+
+.roboto-light {
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+	font-style: normal;
+}
+
+.roboto-regular {
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.roboto-medium {
+	font-family: "Roboto", sans-serif;
+	font-weight: 500;
+	font-style: normal;
+}
+
+.roboto-bold {
+	font-family: "Roboto", sans-serif;
+	font-weight: 700;
+	font-style: normal;
+}
+
+.roboto-black {
+	font-family: "Roboto", sans-serif;
+	font-weight: 900;
+	font-style: normal;
+}
+
+.roboto-thin-italic {
+	font-family: "Roboto", sans-serif;
+	font-weight: 100;
+	font-style: italic;
+}
+
+.roboto-light-italic {
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+	font-style: italic;
+}
+
+.roboto-regular-italic {
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	font-style: italic;
+}
+
+.roboto-medium-italic {
+	font-family: "Roboto", sans-serif;
+	font-weight: 500;
+	font-style: italic;
+}
+
+.roboto-bold-italic {
+	font-family: "Roboto", sans-serif;
+	font-weight: 700;
+	font-style: italic;
+}
+
+.roboto-black-italic {
+	font-family: "Roboto", sans-serif;
+	font-weight: 900;
+	font-style: italic;
+}
+
+.poppins-thin {
+	font-family: "Poppins", sans-serif;
+	font-weight: 100;
+	font-style: normal;
+}
+
+.poppins-extralight {
+	font-family: "Poppins", sans-serif;
+	font-weight: 200;
+	font-style: normal;
+}
+
+.poppins-light {
+	font-family: "Poppins", sans-serif;
+	font-weight: 300;
+	font-style: normal;
+}
+
+.poppins-regular {
+	font-family: "Poppins", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.poppins-medium {
+	font-family: "Poppins", sans-serif;
+	font-weight: 500;
+	font-style: normal;
+}
+
+.poppins-semibold {
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	font-style: normal;
+}
+
+.poppins-bold {
+	font-family: "Poppins", sans-serif;
+	font-weight: 700;
+	font-style: normal;
+}
+
+.poppins-extrabold {
+	font-family: "Poppins", sans-serif;
+	font-weight: 800;
+	font-style: normal;
+}
+
+.poppins-black {
+	font-family: "Poppins", sans-serif;
+	font-weight: 900;
+	font-style: normal;
+}
+
+.poppins-thin-italic {
+	font-family: "Poppins", sans-serif;
+	font-weight: 100;
+	font-style: italic;
+}
+
+.poppins-extralight-italic {
+	font-family: "Poppins", sans-serif;
+	font-weight: 200;
+	font-style: italic;
+}
+
+.poppins-light-italic {
+	font-family: "Poppins", sans-serif;
+	font-weight: 300;
+	font-style: italic;
+}
+
+.poppins-regular-italic {
+	font-family: "Poppins", sans-serif;
+	font-weight: 400;
+	font-style: italic;
+}
+
+.poppins-medium-italic {
+	font-family: "Poppins", sans-serif;
+	font-weight: 500;
+	font-style: italic;
+}
+
+.poppins-semibold-italic {
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	font-style: italic;
+}
+
+.poppins-bold-italic {
+	font-family: "Poppins", sans-serif;
+	font-weight: 700;
+	font-style: italic;
+}
+
+.poppins-extrabold-italic {
+	font-family: "Poppins", sans-serif;
+	font-weight: 800;
+	font-style: italic;
+}
+
+.poppins-black-italic {
+	font-family: "Poppins", sans-serif;
+	font-weight: 900;
+	font-style: italic;
+}
+
+main {
+	max-width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	font-family: "Poppins", sans-serif;
+	/* font-family: "Roboto", sans-serif; */
+}
+
+body::-webkit-scrollbar {
+	width: 0.21em;
+}
+
+body::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(7, 7, 245, 0.514);
+}
+
+body::-webkit-scrollbar-thumb {
+	background: rgb(152, 31, 165);
+	background: -moz-linear-gradient(
+		205deg,
+		rgb(96, 122, 25) 0%,
+		rgb(110, 222, 18) 20%,
+		rgba(145, 2, 210, 1) 37%,
+		rgba(105, 81, 178, 1) 44%,
+		rgb(201, 154, 15) 59%,
+		rgba(145, 2, 210, 1) 79%,
+		rgba(0, 212, 255, 1) 98%
+	);
+	background: -webkit-linear-gradient(
+		205deg,
+		rgba(112, 25, 122, 1) 0%,
+		rgb(197, 175, 5) 20%,
+		rgba(145, 2, 210, 1) 37%,
+		rgba(105, 81, 178, 1) 44%,
+		rgba(70, 148, 151, 1) 59%,
+		rgba(145, 2, 210, 1) 79%,
+		rgba(0, 212, 255, 1) 98%
+	);
+	background: linear-gradient(
+		205deg,
+		rgba(112, 25, 122, 1) 0%,
+		rgb(197, 171, 5) 20%,
+		rgba(145, 2, 210, 1) 37%,
+		rgba(105, 81, 178, 1) 44%,
+		rgba(70, 148, 151, 1) 59%,
+		rgba(145, 2, 210, 1) 79%,
+		rgb(229, 255, 0) 98%
+	);
+
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#70197a",endColorstr="#00d4ff",GradientType=1);
+}
