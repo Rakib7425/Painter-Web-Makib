@@ -9,7 +9,6 @@ import {
 	changeCurrentPassword,
 	getCurrentAdmin,
 	updateAdminAvatar,
-	getAdminChannelProfile,
 	updateAccountDetails,
 	getAllAdmins,
 } from "../controllers/admin.controller.js";
@@ -32,7 +31,5 @@ router.route("/current-admin").get(verifyJWT, getCurrentAdmin);
 router.route("/update-account").patch(verifyJWT, updateAccountDetails);
 
 router.route("/avatar").patch(verifyJWT, upload.single("avatar"), updateAdminAvatar);
-
-router.route("/c/:admin").get(verifyJWT, getAdminChannelProfile);
 
 export default router;
