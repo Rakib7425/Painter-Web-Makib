@@ -82,7 +82,7 @@ const Header = () => {
 	return (
 		<>
 			<header
-				className={`border-gray-200 lg:px-6 py-4 px-2 md:px-0 mx-auto left-0 md:fixed md:min-w-full dark:md:bg-gray-950 md:z-50 bg-gray-100 dark:bg-gray-950 text-black shadow-lg `}
+				className={`border-gray-200 lg:px-6 py-4 px-2 md:px-0 mx-auto left-0 fixed z-50 min-w-full dark:md:bg-gray-950 md:z-50 bg-gray-100 dark:bg-gray-950 text-black shadow-lg `}
 			>
 				<div className='flex flex-wrap justify-between items-center mx-auto max-w-screen-xl w-full'>
 					<span

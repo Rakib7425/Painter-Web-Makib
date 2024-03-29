@@ -15,7 +15,7 @@ const HeroRow = () => {
 				animate={{ opacity: 1, delay: 1 }}
 				exit={{ opacity: 0 }}
 			>
-				<h2 className='text-black dark:text-white text-xl md:text-3xl md:mb-3 font-bold'>
+				<h2 className='text-black dark:text-white text-xl md:text-3xl md:mb-3 font-bold mb-3'>
 					Suitable For
 				</h2>
 				<div className='gap-8 items-center mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 sm:px-3 px-1 md:py-2 '>

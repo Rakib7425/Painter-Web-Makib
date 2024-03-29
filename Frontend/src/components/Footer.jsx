@@ -27,7 +27,14 @@ const Footer = () => {
 							Address
 						</h3>
 						<div className='addressInfo text-justify'>
-							Senga, Barpeta, Assam, Pin- 7813... Phone: +91 55555-5555
+							Senga, Barpeta, Assam, Pin- 7813... Phone:{" "}
+							<a href='tel:+91 6003105660' className='font-semibold'>
+								+91 60031-05660
+							</a>{" "}
+							OR{" "}
+							<a href='tel:+919101247335' className='font-semibold'>
+								+91 91012-47335
+							</a>
 						</div>
 					</div>
 					<div className='space-y-3'>
@@ -75,13 +82,28 @@ const Footer = () => {
 							<a href='/' className='hover:text-white duration-200 '>
 								<BsFacebook size={30} />
 							</a>{" "}
-							<a href='/' className='hover:text-white duration-200 '>
+							<a
+								href={`https://wa.me/+916003105660`}
+								target='_blank'
+								rel='noreferrer'
+								className='hover:text-white duration-200 '
+							>
 								<BsWhatsapp size={30} />
 							</a>
-							<a href='/' className='hover:text-white duration-200 '>
+							<a
+								href='/'
+								target='_blank'
+								rel='noreferrer'
+								className='hover:text-white duration-200 '
+							>
 								<BsInstagram size={30} />
 							</a>
-							<a href='/' className='-mt-[2px] hover:text-white duration-200 '>
+							<a
+								href='/'
+								target='_blank'
+								rel='noreferrer'
+								className='-mt-[2px] hover:text-white duration-200 '
+							>
 								<LuMailPlus size={35} />
 							</a>
 						</div>

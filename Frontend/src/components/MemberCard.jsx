@@ -11,7 +11,7 @@ const MemberCard = ({
 	return (
 		<>
 			<BackgroundGradient>
-				<div className='min-w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-2 '>
+				<div className='min-w-full max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-8 md:p-2 '>
 					<div className='flex flex-col items-center justify-center px-20 py-7'>
 						<img
 							className='w-32 h-32 mb-3 rounded-full shadow-lg'
