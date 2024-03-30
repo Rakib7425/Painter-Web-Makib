@@ -29,7 +29,7 @@ const ToggleDarkMode = () => {
 		<button
 			onClick={handleClick}
 			className={
-				"dark:bg-black dark:text-white bg-pink-700 rounded-full p-[11px] duration-500"
+				"bg-black dark:text-white dark:bg-pink-700 rounded-full p-[11px] duration-500"
 			}
 			title='toggleTheme'
 		>

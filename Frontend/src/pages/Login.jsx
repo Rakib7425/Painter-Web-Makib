@@ -81,11 +81,11 @@ const Login = () => {
 	return (
 		<ContentWrapper>
 			<div className='flex justify-center items-center '>
-				<div className='w-full max-w-xl p-6 mt-24 space-y-8 sm:p-8 bg-white rounded-lg shadow dark:shadow shadow-slate-600 dark:bg-gray-800'>
+				<div className='w-full max-w-xl p-6 my-24 space-y-8 sm:p-8 bg-white rounded-lg shadow dark:shadow shadow-slate-600 dark:bg-gray-800'>
 					<h2 className='text-2xl font-bold text-gray-900 dark:text-white md:py-10'>
 						Admin Login
 					</h2>
-					<form className='mt-8 space-y-6' onSubmit={handleSubmit(onSubmit)}>
+					<form className='mt-8 space-y-6  ' onSubmit={handleSubmit(onSubmit)}>
 						<div>
 							<label
 								htmlFor='email'
@@ -153,9 +153,9 @@ const Login = () => {
 						<button
 							type='submit'
 							disabled={isSubmitting}
-							className='min-w-full px-5 py-3 bg-slate-600 hover:bg-slate-800 dark:hover:bg-stone-800 duration-200 ease-out dark:bg-zinc-900 text-base font-medium text-center text-white  rounded-lg  focus:ring-4 focus:ring-blue-300 sm:w-auto dark:focus:ring-blue-800 md:mt-10 disabled:cursor-wait flex justify-center items-center'
+							className='min-w-full px-5 py-3 bg-slate-600 hover:bg-slate-800 dark:hover:bg-stone-800 duration-200 ease-out dark:bg-zinc-900 text-base font-medium text-center text-white  rounded-lg  focus:ring-4 focus:ring-blue-300 sm:w-auto dark:focus:ring-blue-800 md:mt-10 disabled:cursor-wait flex justify-center items-center md:mb-20'
 						>
-							<span className='mr-2 '>Login</span>
+							<span className='mr-2 '> {isSubmitting ? "Login in.." : "Login"}</span>
 							{isSubmitting && (
 								<span className='pt-1'>
 									<Spinner className='w-5 h-5' />
