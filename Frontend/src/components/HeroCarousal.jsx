@@ -20,18 +20,18 @@ const HeroCarousal = () => {
 		importImages();
 	}, []);
 	return (
-		<div className='mb-16'>
+		<div className='mb-6 md:mb-14 mx-auto '>
 			<Carousel
 				autoPlay={true}
 				infiniteLoop={true}
-				interval={4000}
+				interval={3000}
 				showThumbs={false}
 				stopOnHover={false}
 			>
 				{images &&
 					images.map((img, index) => (
-						<div key={index} className='max-h-[600px]'>
-							<img src={img.default} className='object-cover md:max-h-[650px]' />
+						<div key={index} className=''>
+							<img src={img.default} className='object-cover max-h-screen' />
 							<p className='legend'>Legend 1</p>
 						</div>
 					))}

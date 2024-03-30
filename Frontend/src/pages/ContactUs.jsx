@@ -8,6 +8,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { setUser } from "../store/slices/userSlice";
 import ContentWrapper from "../components/ContentWrapper";
+import { FaLocationDot } from "react-icons/fa6";
+import { BsFillTelephoneFill } from "react-icons/bs";
+import { IoMdMail } from "react-icons/io";
+import GoogleMap from "../components/GoogleMap";
 
 const ContactUs = () => {
 	const [userData, setUserData] = useState([]);
@@ -85,51 +89,40 @@ const ContactUs = () => {
 			</h2>
 			<div className='w-full flex flex-col justify-center items-center md:flex-row md:items-start'>
 				<div className='left h-full'>
-					<section className='py-6 mt-5 rounded-l-md dark:bg-gray-900 h-full text-gray-900 dark:text-white px-8 '>
+					<section className='py-6 px-8   mt-5 rounded-l-md dark:bg-gray-900 h-full text-gray-900 dark:text-white '>
 						<div className='py-6 md:py-0 md:px-6'>
 							<h1 className='text-4xl font-bold'>Get in touch</h1>
 							<p className='pt-2 pb-4'>Fill in the form to start a conversation</p>
 							<div className='space-y-4'>
-								<p className='flex items-center'>
-									<svg
-										xmlns='http://www.w3.org/2000/svg'
-										viewBox='0 0 20 20'
-										fill='currentColor'
-										className='w-5 h-5 mr-2 sm:mr-6'
-									>
-										<path
-											fillRule='evenodd'
-											d='M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z'
-											clipRule='evenodd'
-										></path>
-									</svg>
+								<p className='flex items-center gap-2 ms:gap-5'>
+									<FaLocationDot size={25} />
 									<span>Fake address, 9999 City</span>
 								</p>
-								<p className='flex items-center'>
-									<svg
-										xmlns='http://www.w3.org/2000/svg'
-										viewBox='0 0 20 20'
-										fill='currentColor'
-										className='w-5 h-5 mr-2 sm:mr-6'
-									>
-										<path d='M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z'></path>
-									</svg>
-									<span>123456789</span>
+								<p className='flex items-center gap-2 ms:gap-5'>
+									<BsFillTelephoneFill size={20} />
+									<span className='flex flex-col '>
+										<a href='tel:+91 6003105660' className='font-semibold'>
+											+91 01234-56789
+										</a>
+
+										<a href='tel:+91 9101247335' className='font-semibold'>
+											+91 91012-47335
+										</a>
+									</span>
 								</p>
-								<p className='flex items-center'>
-									<svg
-										xmlns='http://www.w3.org/2000/svg'
-										viewBox='0 0 20 20'
-										fill='currentColor'
-										className='w-5 h-5 mr-2 sm:mr-6'
-									>
-										<path d='M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z'></path>
-										<path d='M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z'></path>
-									</svg>
-									<span>contact@business.com</span>
+								<p className='flex items-center gap-2 ms:gap-5'>
+									<IoMdMail size={26} />
+									<a href='mailto:'>contact@business.com</a>
 								</p>
 							</div>
 						</div>
+					</section>
+
+					<section
+						id='mapSection'
+						className='md:max-w-[34rem] dark:text-white text-justify overflow-hidden'
+					>
+						<GoogleMap />
 					</section>
 				</div>
 				<div className='flex justify-center items-center'>

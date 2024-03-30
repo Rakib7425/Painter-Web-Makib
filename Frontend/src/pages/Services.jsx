@@ -24,6 +24,7 @@ const Services = () => {
 						<ServicesCard
 							title='CABINET PAINTING'
 							description='Painting or staining cabinets can be the most effective way to give a kitchen a facelift. Our paint crews are skilled in cabinet painting and staining. We can handle your cabinet painting project, giving you a space that you’ll be proud to spend time in.'
+							imageUrl='https://tecdn.b-cdn.net/img/Photos/Slides/img%20(102).webp'
 						/>
 						<ServicesCard
 							title='CUSTOM PAINTING'

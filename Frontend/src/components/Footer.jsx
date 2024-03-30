@@ -32,7 +32,7 @@ const Footer = () => {
 								+91 60031-05660
 							</a>{" "}
 							OR{" "}
-							<a href='tel:+919101247335' className='font-semibold'>
+							<a href='tel:+91 9101247335' className='font-semibold'>
 								+91 91012-47335
 							</a>
 						</div>
@@ -98,17 +98,74 @@ const Footer = () => {
 							>
 								<BsInstagram size={30} />
 							</a>
-							<a
-								href='/'
-								target='_blank'
-								rel='noreferrer'
-								className='-mt-[2px] hover:text-white duration-200 '
-							>
+							<a href='mailto:' className='-mt-[2px] hover:text-white duration-200 '>
 								<LuMailPlus size={35} />
 							</a>
 						</div>
 					</div>
 				</div>
+				<span className='absolute left-0 top-0 z-[1] opacity-35'>
+					<svg
+						width='219'
+						height='192'
+						viewBox='0 0 419 492'
+						fill='none'
+						xmlns='http://www.w3.org/2000/svg'
+					>
+						<ellipse
+							cx='55.0003'
+							cy='350'
+							rx='364'
+							ry='364'
+							transform='rotate(-45 55.0003 350)'
+							fill='url(#paint0_linear)'
+						></ellipse>
+						<defs>
+							<linearGradient
+								id='paint0_linear'
+								x1='55.0003'
+								y1='-14'
+								x2='55.0003'
+								y2='714'
+								gradientUnits='userSpaceOnUse'
+							>
+								<stop stopColor='#13C296' stopOpacity='0.4'></stop>
+								<stop offset='1' stopOpacity='0'></stop>
+							</linearGradient>
+						</defs>
+					</svg>
+				</span>
+				<span className='absolute bottom-0 right-0 z-[1]'>
+					<svg
+						width='327'
+						height='220'
+						viewBox='0 0 327 220'
+						fill='none'
+						xmlns='http://www.w3.org/2000/svg'
+					>
+						<ellipse
+							cx='199.343'
+							cy='199.965'
+							rx='199.017'
+							ry='199.017'
+							transform='rotate(-75 199.343 199.965)'
+							fill='url(#paint0_linear)'
+						></ellipse>
+						<defs>
+							<linearGradient
+								id='paint0_linear'
+								x1='199.343'
+								y1='0.948181'
+								x2='199.343'
+								y2='398.982'
+								gradientUnits='userSpaceOnUse'
+							>
+								<stop stopColor='#3056D3' stopOpacity='0.32'></stop>
+								<stop offset='1' stopOpacity='0'></stop>
+							</linearGradient>
+						</defs>
+					</svg>
+				</span>
 			</div>
 			<div className='py-6 text-sm text-center dark:text-gray-400 text-gray-600'>
 				&copy; {new Date().getFullYear()} Company Co. All rights reserved.

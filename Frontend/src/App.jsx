@@ -130,7 +130,7 @@ const App = () => {
 
 	return (
 		<div className='dark:bg-gray-950 min-h-screen bg-white duration-700 pb-5'>
-			<section className='max-w-[1480px] mx-auto h-full pb-4'>
+			<section className='max-w-[1480px] min-w-full mx-auto h-full pb-4'>
 				{/* WARN: Don't Change or edit this */}
 
 				<RouterProvider router={router} />

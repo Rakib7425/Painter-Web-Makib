@@ -45,7 +45,7 @@ const Gallery = () => {
 										key={index}
 										initial={{ marginTop: "100vh" }}
 										animate={{ marginTop: "0px" }}
-										className='group relative flex h-48 items-center overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-950 duration-700 shadow-lg md:h-80'
+										className='group relative flex h-48 items-center overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-950 duration-700 shadow-lg md:h-80 object-cover object-center'
 									>
 										<ImageCard
 											img={image.default}
