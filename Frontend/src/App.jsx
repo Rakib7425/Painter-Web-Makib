@@ -12,6 +12,13 @@ import NotFound from "./pages/NotFound.jsx";
 import Gallery from "./pages/Gallery.jsx";
 import BackToUp from "@uiw/react-back-to-top";
 import { BiUpArrowCircle } from "react-icons/bi";
+import AdminHeader from "./Admin/Components/AdminHeader.jsx";
+import AdminDashboard from "./Admin/pages/AdminDashboard.jsx";
+import AdminAbout from "./Admin/pages/AdminAbout.jsx";
+import AdminServices from "./Admin/pages/AdminServices.jsx";
+import AdminGallery from "./Admin/pages/AdminGallery.jsx";
+import AdminTeam from "./Admin/pages/AdminTeam.jsx";
+import AdminContact from "./Admin/pages/AdminContact.jsx";
 
 const App = () => {
 	const router = createBrowserRouter([
@@ -111,6 +118,7 @@ const App = () => {
 				},
 			],
 		},
+		// Admin routes
 		{
 			path: "/admin-login",
 			element: <Header />,
@@ -120,6 +128,96 @@ const App = () => {
 					element: (
 						<span className='pt-12'>
 							<Login />
+							<Footer />
+						</span>
+					),
+				},
+			],
+		},
+		{
+			path: "/admin/dashboard",
+			element: <AdminHeader />,
+			children: [
+				{
+					path: "",
+					element: (
+						<span className='pt-12'>
+							<AdminDashboard />
+							<Footer />
+						</span>
+					),
+				},
+			],
+		},
+		{
+			path: "/admin/about",
+			element: <AdminHeader />,
+			children: [
+				{
+					path: "",
+					element: (
+						<span className='pt-12'>
+							<AdminAbout />
+							<Footer />
+						</span>
+					),
+				},
+			],
+		},
+		{
+			path: "/admin/services",
+			element: <AdminHeader />,
+			children: [
+				{
+					path: "",
+					element: (
+						<span className='pt-12'>
+							<AdminServices />
+							<Footer />
+						</span>
+					),
+				},
+			],
+		},
+		{
+			path: "/admin/gallery",
+			element: <AdminHeader />,
+			children: [
+				{
+					path: "",
+					element: (
+						<span className='pt-12'>
+							<AdminGallery />
+							<Footer />
+						</span>
+					),
+				},
+			],
+		},
+		{
+			path: "/admin/team",
+			element: <AdminHeader />,
+			children: [
+				{
+					path: "",
+					element: (
+						<span className='pt-12'>
+							<AdminTeam />
+							<Footer />
+						</span>
+					),
+				},
+			],
+		},
+		{
+			path: "/admin/contact",
+			element: <AdminHeader />,
+			children: [
+				{
+					path: "",
+					element: (
+						<span className='pt-12'>
+							<AdminContact />
 							<Footer />
 						</span>
 					),
