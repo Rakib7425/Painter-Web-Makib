@@ -17,6 +17,7 @@ const Gallery = () => {
 					import(/* @vite-ignore */ `/images/${index + 1}.jpg`).catch(() => null)
 				)
 			);
+
 			const filteredImages = importedImages.filter((image) => image !== null);
 
 			setIsLoading(false);
@@ -54,20 +55,20 @@ const Gallery = () => {
 									</motion.div>
 								))}
 						</div>
-						{isLoading && (
-							<div className='inset-0 md:gap-3 h-full flex flex-wrap w-full object-cover object-center transition duration-200 group-hover:scale-110'>
-								<SkeletonCard />
-								<SkeletonCard />
-								<SkeletonCard />
-								<SkeletonCard />
-								<SkeletonCard />
-								<SkeletonCard />
-								<span className='flex justify-center items-center w-full my-4'>
-									<Spinner className='text-red-700 w-7 h-7 text-4xl' />
-								</span>
-							</div>
-						)}
 					</div>
+					{isLoading && (
+						<div className='inset-0 mt-5 md:gap-3 h-full flex justify-center items-center flex-wrap w-full object-cover object-center transition duration-200 group-hover:scale-110'>
+							<SkeletonCard />
+							<SkeletonCard />
+							<SkeletonCard />
+							<SkeletonCard />
+							<SkeletonCard />
+							<SkeletonCard />
+							<span className='flex justify-center items-center w-full my-4'>
+								<Spinner className='text-red-700 w-7 h-7 text-4xl' />
+							</span>
+						</div>
+					)}
 				</div>
 			</div>
 		</ContentWrapper>
