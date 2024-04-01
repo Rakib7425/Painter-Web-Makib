@@ -25,6 +25,11 @@ const adminSchema = new Schema(
 			trim: true,
 			index: true,
 		},
+		isAdmin: {
+			type: Boolean,
+			required: true,
+			default: false,
+		},
 		avatar: {
 			type: String, // cloudinary url
 			required: false,
@@ -62,6 +67,7 @@ adminSchema.methods.generateAccessToken = function () {
 			email: this.email,
 			username: this.username,
 			fullName: this.fullName,
+			isAdmin: this.isAdmin,
 		},
 		process.env.ACCESS_TOKEN_SECRET,
 		{
@@ -74,6 +80,7 @@ adminSchema.methods.generateRefreshToken = function () {
 	return jwt.sign(
 		{
 			_id: this._id,
+			isAdmin: this.isAdmin,
 		},
 		process.env.REFRESH_TOKEN_SECRET,
 		{

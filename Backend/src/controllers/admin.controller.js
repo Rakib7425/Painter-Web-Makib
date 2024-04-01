@@ -48,10 +48,6 @@ const registerAdmin = asyncHandler(async (req, res) => {
 		(await uploadOnCloudinary(avatarLocalPath)) ||
 		"https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png";
 
-	// if (!avatar) {
-	// 	throw new ApiError(400, "Avatar file is required");
-	// }
-
 	const admin = await Admin.create({
 		fullName,
 		avatar:
@@ -62,25 +58,33 @@ const registerAdmin = asyncHandler(async (req, res) => {
 		username: username.toLowerCase(),
 	});
 
-	const createdAdmin = await Admin.findById(admin._id).select("-password -refreshToken");
+	const createdAdmin = await Admin.findById(admin._id).select("-password -refreshToken -isAdmin");
 
 	if (!createdAdmin) {
 		throw new ApiError(500, "Something went wrong while registering the admin");
 	}
 
+	const { accessToken, refreshToken } = await generateAccessAndRefreshTokens(createdAdmin._id);
+
+	const options = {
+		httpOnly: true,
+		secure: true,
+	};
+
 	return res
 		.status(201)
-		.json(new ApiResponse(200, createdAdmin, "Admin registered Successfully"));
+		.cookie("accessToken", accessToken, options)
+		.cookie("refreshToken", refreshToken, options)
+		.json(
+			new ApiResponse(
+				201,
+				{ accessToken, refreshToken, admin: createdAdmin },
+				"Admin registered Successfully"
+			)
+		);
 });
 
 const loginAdmin = asyncHandler(async (req, res) => {
-	// req body -> data
-	// username or email
-	//find the admin
-	//password check
-	//access and refresh token
-	//send cookie
-
 	const { email, username, password } = req.body;
 	// console.log(email);
 
@@ -104,7 +108,9 @@ const loginAdmin = asyncHandler(async (req, res) => {
 
 	const { accessToken, refreshToken } = await generateAccessAndRefreshTokens(admin._id);
 
-	const loggedInAdmin = await Admin.findById(admin._id).select("-password -refreshToken");
+	const loggedInAdmin = await Admin.findById(admin._id).select(
+		"-password -refreshToken -isAdmin"
+	);
 
 	const options = {
 		httpOnly: true,
@@ -250,7 +256,7 @@ const updateAdminAvatar = asyncHandler(async (req, res) => {
 
 	const avatar = await uploadOnCloudinary(avatarLocalPath);
 
-	if (!avatar.url) {
+	if (!avatar.secure_url) {
 		throw new ApiError(400, "Error while uploading on avatar");
 	}
 
@@ -258,7 +264,7 @@ const updateAdminAvatar = asyncHandler(async (req, res) => {
 		req.admin?._id,
 		{
 			$set: {
-				avatar: avatar.url,
+				avatar: avatar.secure_url,
 			},
 		},
 		{ new: true }
@@ -267,81 +273,6 @@ const updateAdminAvatar = asyncHandler(async (req, res) => {
 	return res.status(200).json(new ApiResponse(200, admin, "Avatar image updated successfully"));
 });
 
-const updateAdminCoverImage = asyncHandler(async (req, res) => {
-	const coverImageLocalPath = req.file?.path;
-
-	if (!coverImageLocalPath) {
-		throw new ApiError(400, "Cover image file is missing");
-	}
-
-	//TODO: delete old image - assignment
-
-	const coverImage = await uploadOnCloudinary(coverImageLocalPath);
-
-	if (!coverImage.url) {
-		throw new ApiError(400, "Error while uploading on avatar");
-	}
-
-	const admin = await Admin.findByIdAndUpdate(
-		req.admin?._id,
-		{
-			$set: {
-				coverImage: coverImage.url,
-			},
-		},
-		{ new: true }
-	).select("-password");
-
-	return res.status(200).json(new ApiResponse(200, admin, "Cover image updated successfully"));
-});
-
-const getWatchHistory = asyncHandler(async (req, res) => {
-	const admin = await Admin.aggregate([
-		{
-			$match: {
-				_id: new mongoose.Types.ObjectId(req.admin._id),
-			},
-		},
-		{
-			$lookup: {
-				from: "videos",
-				localField: "watchHistory",
-				foreignField: "_id",
-				as: "watchHistory",
-				pipeline: [
-					{
-						$lookup: {
-							from: "admins",
-							localField: "owner",
-							foreignField: "_id",
-							as: "owner",
-							pipeline: [
-								{
-									$project: {
-										fullName: 1,
-										username: 1,
-										avatar: 1,
-									},
-								},
-							],
-						},
-					},
-					{
-						$addFields: {
-							owner: {
-								$first: "$owner",
-							},
-						},
-					},
-				],
-			},
-		},
-	]);
-
-	return res
-		.status(200)
-		.json(new ApiResponse(200, admin[0].watchHistory, "Watch history fetched successfully"));
-});
 const getAllAdmins = asyncHandler(async (req, res) => {
 	const dbRes = await Admin.find({});
 	res.status(200).send(dbRes);
@@ -356,7 +287,5 @@ export {
 	getCurrentAdmin,
 	updateAccountDetails,
 	updateAdminAvatar,
-	updateAdminCoverImage,
-	getWatchHistory,
 	getAllAdmins,
 };

@@ -3,15 +3,16 @@ import { Schema, model } from "mongoose";
 const gallerySchema = new Schema(
 	{
 		image: {
-			type: String,
+			type: String, // cloudinary image url
 			required: true,
 		},
 		imageTitle: {
 			type: String,
+			default: "A Image",
 		},
 		pageTitle: {
 			type: String,
-			default: "",
+			default: "Gallery",
 		},
 	},
 	{ timestamps: true }
