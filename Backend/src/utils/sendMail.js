@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 
-const sendMail = async (email, html, emailBody, subject) => {
+const sendMail = async (email, html = <hr />, emailBody = `Hey ${email}`, subject) => {
 	try {
 		// if (!html) {
 		// 	throw new Error("HTML content is required!");

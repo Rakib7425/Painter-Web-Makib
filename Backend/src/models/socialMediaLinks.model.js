@@ -11,10 +11,10 @@ const socialMediaLinksSchema = new Schema(
 			type: String,
 		},
 		whatsAppLink: {
-			type: Number,
+			type: String,
 		},
 		email: {
-			type: Number,
+			type: String,
 		},
 	},
 	{ timestamps: true }

@@ -25,6 +25,7 @@ import galleryRouter from "./routes/gallery.routes.js";
 import servicesRouter from "./routes/services.routes.js";
 import aboutRouter from "./routes/about.routes.js";
 import homeRouter from "./routes/home.routes.js";
+import footerRouter from "./routes/footer.routes.js";
 
 //routes declaration
 app.use("/api/v1/admin", adminRouter);
@@ -36,6 +37,7 @@ app.use("/api/v1/gallery", galleryRouter);
 app.use("/api/v1/services", servicesRouter);
 app.use("/api/v1/about", aboutRouter);
 app.use("/api/v1/home", homeRouter);
+app.use("/api/v1/footer", footerRouter);
 
 app.use("/api/v1/mail", mailRouter);
 

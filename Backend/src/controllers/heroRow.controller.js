@@ -44,7 +44,7 @@ const addHeroRow = asyncHandler(async (req, res) => {
 });
 
 // Controller function to get all hero rows
-const getHeroRows = asyncHandler(async (req, res) => {
+const getHeroRows = asyncHandler(async (_, res) => {
 	try {
 		const heroRows = await HeroRow.find({});
 
@@ -74,7 +74,7 @@ const updateHeroRow = asyncHandler(async (req, res) => {
 		}
 
 		// Find the hero row by ID and update it with the specified fields
-		const updatedHeroRow = await HeroRow.findByIdAndUpdate(req.body.id, updateFields, {
+		const updatedHeroRow = await HeroRow.findByIdAndUpdate(req.body._id, updateFields, {
 			new: true,
 		});
 
@@ -92,7 +92,7 @@ const updateHeroRow = asyncHandler(async (req, res) => {
 
 // Controller function to delete a hero row
 const deleteHeroRow = asyncHandler(async (req, res) => {
-	const deletedHeroRow = await HeroRow.findByIdAndDelete(req.params.id);
+	const deletedHeroRow = await HeroRow.findByIdAndDelete(req.body._id);
 
 	if (!deletedHeroRow) {
 		throw new ApiError(404, "Hero row not found! Error deleting hero row");
