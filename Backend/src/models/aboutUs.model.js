@@ -4,7 +4,7 @@ const aboutUsSchema = new Schema(
 	{
 		title: {
 			type: String,
-			required: true,
+			default: "About us",
 		},
 		description: {
 			type: String,
