@@ -1,9 +1,9 @@
 import { Router } from "express";
 const router = Router();
-import { verifyAdmin } from "../middlewares/auth.middleware.js";
-import { upload } from "../middlewares/multer.middleware.js";
 import carouselRouter from "./carousel.routes.js";
-import {} from "../controllers/home.controller.js";
+import heroRowRouter from "./heroRow.routes.js";
+
 router.use("/carousel", carouselRouter);
+router.use("/hero-row", heroRowRouter);
 
 export default router;
