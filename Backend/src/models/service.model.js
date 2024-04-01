@@ -10,7 +10,7 @@ const serviceSchema = new Schema(
 		description: {
 			type: String,
 		},
-		photo: {
+		image: {
 			type: String,
 		},
 		readMoreLink: {

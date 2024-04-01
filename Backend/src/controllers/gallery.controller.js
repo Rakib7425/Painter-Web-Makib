@@ -7,17 +7,22 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js";
 // Controller function to add image to the gallery
 const addImage = asyncHandler(async (req, res) => {
 	const { imageTitle, pageTitle } = req.body;
-	const imagePath = req.file.path;
+	const imagePath = req.file?.path;
 
 	if (!imagePath) {
 		throw new ApiError(500, "Image file is required!");
 	}
 
-	const { secure_url } =
-		(await uploadOnCloudinary(imagePath)) ||
-		"https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png";
+	const image_url = await uploadOnCloudinary(imagePath);
 
-	const newImage = await Gallery.create({ image: secure_url, imageTitle, pageTitle });
+	const newImage = await Gallery.create({
+		image:
+			image_url?.secure_url ||
+			"https://www.paintzen.com/wp-content/uploads/2020/01/house-painting-services-2.jpg",
+		imageTitle,
+		pageTitle,
+	});
+
 	if (!newImage) {
 		throw new ApiError(500, "Error adding image to gallery");
 	}
@@ -26,7 +31,7 @@ const addImage = asyncHandler(async (req, res) => {
 });
 
 // Controller function to get all images from the gallery
-const getImages = asyncHandler(async (req, res) => {
+const getImages = asyncHandler(async (_, res) => {
 	const images = await Gallery.find({});
 	if (!images) {
 		throw new ApiError(500, "Error fetching images from gallery");
@@ -38,19 +43,23 @@ const getImages = asyncHandler(async (req, res) => {
 const updateImage = asyncHandler(async (req, res) => {
 	const { _id, imageTitle, pageTitle } = req.body;
 
-	const imagePath = req.file.path;
+	const imagePath = req.file?.path;
 
 	if (!imagePath) {
 		throw new ApiError(500, "Image file is required!");
 	}
 
-	const { secure_url } =
-		(await uploadOnCloudinary(imagePath)) ||
-		"https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png";
+	const image_url = await uploadOnCloudinary(imagePath);
 
 	const updatedImage = await Gallery.findByIdAndUpdate(
 		{ _id },
-		{ image: secure_url, imageTitle, pageTitle },
+		{
+			image:
+				image_url?.secure_url ||
+				"https://www.paintzen.com/wp-content/uploads/2020/01/house-painting-services-2.jpg",
+			imageTitle,
+			pageTitle,
+		},
 		{ new: true }
 	);
 

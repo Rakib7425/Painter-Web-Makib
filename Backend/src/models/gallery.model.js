@@ -8,7 +8,7 @@ const gallerySchema = new Schema(
 		},
 		imageTitle: {
 			type: String,
-			default: "A Image",
+			default: "Recent Project Image",
 		},
 		pageTitle: {
 			type: String,

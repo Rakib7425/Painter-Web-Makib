@@ -39,7 +39,7 @@ export const sendMail = asyncHandler(async (req, res) => {
 
 		// Set up PDF attachment
 		const pdfAttachment = {
-			filename: "job_appointment.pdf",
+			filename: "htmlDoc.pdf",
 			// content: newPDF,
 		};
 

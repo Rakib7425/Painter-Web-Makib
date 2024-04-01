@@ -11,7 +11,7 @@ import {
 import { upload } from "../middlewares/multer.middleware.js";
 
 router.route("/add-image").post(verifyAdmin, upload.single("image"), addImage);
-router.route("/get-images").get(verifyAdmin, getImages);
+router.route("/get-images").get(getImages); // Public route
 router.route("/update-image").patch(verifyAdmin, upload.single("image"), updateImage);
 router.route("/delete-image").delete(verifyAdmin, deleteImage);
 
