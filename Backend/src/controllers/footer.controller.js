@@ -15,8 +15,8 @@ const addFooterData = asyncHandler(async (req, res) => {
 			throw new ApiError(500, "Logo image file is required");
 		}
 
-		const socialLinks = await SocialMediaLinks.findOne().populate();
 		const photo_url = await uploadOnCloudinary(req.file.path);
+		const socialLinks = await SocialMediaLinks.findOne().populate();
 
 		const newFooter = await Footer.create({
 			logo:
@@ -35,7 +35,6 @@ const addFooterData = asyncHandler(async (req, res) => {
 			.json(new ApiResponse(201, newFooter, "Footer data added successfully"));
 		//
 	} catch (error) {
-		// Handle any errors that occur during the process and return an appropriate response
 		throw new ApiError(500, error.message || "Error adding footer data");
 	}
 });
@@ -88,7 +87,6 @@ const getFooterData = asyncHandler(async (_, res) => {
 // Controller function to update the footer data
 const updateFooterData = asyncHandler(async (req, res) => {
 	try {
-		// Extract data from the request body
 		const { address } = req.body;
 
 		let updateFields = {};
@@ -112,12 +110,10 @@ const updateFooterData = asyncHandler(async (req, res) => {
 			{ new: true }
 		);
 
-		// Return success response with the updated footer data
 		return res
 			.status(200)
 			.json(new ApiResponse(200, updatedFooter, "Footer data updated successfully"));
 	} catch (error) {
-		// Handle any errors that occur during the process and return an appropriate response
 		throw new ApiError(500, error.message || "Error updating footer data");
 	}
 });
