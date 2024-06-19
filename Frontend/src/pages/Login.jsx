@@ -57,7 +57,7 @@ const Login = () => {
 				console.log("");
 				return toast.error(response.data.message || "User login Failed");
 			}
-
+			console.log(response.data.data.user)
 			dispatch(setUser(response.data.data.user));
 
 			setUserData(response.data.data);

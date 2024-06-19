@@ -37,6 +37,9 @@ const getAbout = asyncHandler(async (req, res) => {
 		return res
 			.status(200)
 			.json(new ApiResponse(200, about, "About section fetched successfully"));
+		// .json({
+		// 	message: ' i am about'
+		// })
 	} catch (error) {
 		throw new ApiError(500, "Error fetching about section");
 	}
