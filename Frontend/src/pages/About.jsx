@@ -1,9 +1,21 @@
+import  {useEffect, useState} from 'react';
 import AboutCounter from "../components/AboutCounter";
 import ContentWrapper from "../components/ContentWrapper";
 import TeamMembers from "../components/TeamMembers";
 import { motion } from "framer-motion";
 
 const About = () => {
+
+	const [about , setAbout] = useState(null);
+	
+	const fetchAbout = async()=>{
+		const data = await fetch('http://localhost:8080/api/v1/about/get-about')
+		const json = await data.json();
+		setAbout(json.data);
+	}
+	useEffect(()=>{
+			fetchAbout()
+	},[])
 	return (
 		<ContentWrapper>
 			<div className='min-h-screen md:pt-10 dark:text-white'>
@@ -32,13 +44,7 @@ const About = () => {
 									</h2>
 
 									<p className='text-justify'>
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-										Accusantium unde voluptas voluptatibus optio laboriosam
-										sequi possimus eos perferendis reiciendis facilis atque
-										fugit fuga quidem animi, eaque suscipit amet? Fugit, quas
-										laboriosam. Necessitatibus aperiam officia quasi culpa
-										perspiciatis cum possimus suscipit qui eum pariatur?
-										Repellat quod quidem illo cum, sequi dignissimos.
+										{about?.description}
 									</p>
 								</div>
 							</section>
